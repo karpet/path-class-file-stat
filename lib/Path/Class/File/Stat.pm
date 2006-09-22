@@ -6,7 +6,7 @@ use warnings;
 use base qw( Path::Class::File );
 
 our $VERSION = '0.01';
-my $debug = 1;
+my $debug = 0;
 
 sub new
 {
