@@ -5,7 +5,7 @@ use warnings;
 
 use base qw( Path::Class::File );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 my $debug = 0;
 
 sub new
@@ -79,6 +79,21 @@ Path::Class::File::Stat implements two new methods for Path::Class::File objects
 Returns true if the object's device number and inode number have changed, or
 if the modification time has changed.
 
+While L<File::Modified> uses a MD5 signature of the stat() of a file
+to determine if the file has changed, changed() uses
+a simpler (and probably more naive) algorithm. If you need a more sophisticated 
+way of determining if a file has changed, use
+the restat() method and compare the cached File::stat object it returns with 
+the current stat() object.
+
+Example:
+
+ my $oldstat = $file->restat;
+ my $newstat = $file->stat;
+ # compare $oldstat and $newstat any way you like
+
+Or just use File::Modified instead.
+
 =head2 restat
 
 Re-cache the File::stat object in the Path::Class::File::Stat object. Returns
@@ -86,7 +101,7 @@ the previously cached File::stat object.
 
 =head1 SEE ALSO
 
-L<Path::Class>, L<Path::Class::File>
+L<Path::Class>, L<Path::Class::File>, L<File::Signature>, L<File::Modified>
 
 =head1 AUTHOR
 
