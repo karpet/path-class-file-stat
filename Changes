@@ -10,5 +10,5 @@ Revision history for Perl extension Path::Class::File::Stat.
     - changed() now returns old stat() object and restat()'s automatically
     - fixed SYNOPSIS to reflect new changed() behaviour
 
-0.03    xxx
+0.03    22 Dec 2010
     - added use_md5() feature.
