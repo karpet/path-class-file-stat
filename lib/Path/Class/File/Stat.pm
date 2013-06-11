@@ -4,6 +4,7 @@ use warnings;
 use base qw( Path::Class::File );
 
 our $VERSION = '0.04';
+
 my $debug = $ENV{PERL_DEBUG} || 0;
 
 sub new {
@@ -77,8 +78,7 @@ Path::Class::File::Stat - cache and compare stat() calls on a Path::Class::File 
   # $file has all the magic of Path::Class::File
   
   # sometime later
-  if ($file->changed)
-  {
+  if ($file->changed) {
     # do something provocative
   }
 
@@ -97,14 +97,15 @@ following ways.
 =head2 use_md5
 
 Calling this method will attempt to load Digest::MD5 and use that
-instead of stat() for creating file signatures. This is similar
+in addition to stat() for creating file signatures. This is similar
 to how L<File::Modified> works.
 
 =head2 changed
 
 Returns the previously cached File::stat object
 if the file's device number and inode number have changed, or
-if the modification time or size has changed.
+if the modification time or size has changed, or if use_md5()
+is on, the MD5 signature of the file's contents has changed.
 
 Returns 0 (false) otherwise.
 
