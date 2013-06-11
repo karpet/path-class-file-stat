@@ -13,7 +13,7 @@ Revision history for Perl extension Path::Class::File::Stat.
 0.03    22 Dec 2010
     - added use_md5() feature.
 
-0.04    xxx
+0.04    11 June 2013
     * refactor to use both md5 *and* stat() call in changed()
     * add actual tests
 
