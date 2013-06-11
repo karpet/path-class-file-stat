@@ -1,5 +1,7 @@
-Path-Class-File-Stat version 0.01
+Path-Class-File-Stat 
 =================================
+
+Test whether a file has changed.
 
 INSTALLATION
 
